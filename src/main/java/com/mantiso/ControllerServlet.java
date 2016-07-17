@@ -13,6 +13,14 @@ import java.io.IOException;
  */
 @WebServlet(name = "ControllerServlet")
 public class ControllerServlet extends HttpServlet {
+
+    @Override
+    public void init() throws ServletException {
+        ApplicationSettings applicationSettings = new ApplicationSettings();
+        applicationSettings.setformCssClass("blueUser");
+        getServletContext().setAttribute("app", applicationSettings);
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

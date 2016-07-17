@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>My App</title>
+    <link rel="stylesheet" href="/app.css"/>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
@@ -29,16 +30,16 @@
             <div class="col-md-3"><%= calendar.getTime().toString()%>
             </div>
             <div class="col-md-9">
-                <%
+                <!--%
                     User user = (User) request.getAttribute("user");
                     if (user == null) {
                         user = new User();
                     }
-                %>
+                %-->
                 <tabset>
                     <tab headings="search">
-                        <div>
-                            <h2>Welcome <%= user.getName()%>
+                        <div class="${app.formCssClass}">
+                            <h2>Welcome ${user.name}
                             </h2>
                             <form action="home" method="post">
                                 <p>
