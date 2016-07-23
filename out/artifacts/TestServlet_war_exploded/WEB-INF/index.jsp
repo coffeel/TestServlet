@@ -1,4 +1,5 @@
 <%@ page import="java.util.Calendar" %>
+<%@ taglib prefix="c" uri=http://java.sun.com/jsp/jstl/core %>
 <%@ page import="main.java.com.mantiso.User" %><%--
   Created by IntelliJ IDEA.
   User: xue
@@ -39,8 +40,22 @@
                 <tabset>
                     <tab headings="search">
                         <div class="${app.formCssClass}">
-                            <h2>Welcome ${user.name}
-                            </h2>
+                            <c:choose>
+                                <c:when test="${!empty user.name}">
+                                    <h2>Welcome ${ user.name }</h2>
+                                </c:when>
+                                <c:otherwise>
+                                    <h2>Welcome whoever you are</h2>
+                                </c:otherwise>
+                            </c:choose>
+                            <c:if test="${!empty user.name}">
+                                <h2>Welcome ${user.name}
+                                </h2>
+                            </c:if>
+                            <c:if test="${empty user.name}">
+                                <h2>Welcome whoever you are
+                                </h2>
+                            </c:if>
                             <form action="home" method="post">
                                 <p>
                                     Name: <input type="text" name="name"/>
